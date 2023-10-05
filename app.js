@@ -1,5 +1,7 @@
 const info = document.querySelector('.infos');
 
+const form = document.forms['form'];
+
 const allBtns = document.querySelectorAll('input[type="button"]');
 
 // Fonction appelée lorsqu'un bouton est cliqué
@@ -32,3 +34,16 @@ function suppr(){
     // Effacez le contenu du champ de texte
     form.fenetre.value = "";
 }
+
+
+document.addEventListener('keydown', function(event) {
+    const key = event.key; 
+    if (/^[0-9+\-*/.=]$/.test(key)) {
+        // Si la touche correspond à un chiffre, opérateur ou égale
+
+        val(key); // Appelez la fonction val() avec la valeur de la touche
+        
+    } else if (key === 'Enter') {
+        calcule();
+    }
+});
